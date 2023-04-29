@@ -14,9 +14,11 @@ function append(message, position){
     messageContainer.appendChild(messageElement);
 }
 
-const name = prompt("What is your name ? ", "anonymous"); 
+const name = prompt("What is your name ? "); 
 
-socket.emit("new-user-joined", name); 
+if(name){
+    socket.emit("new-user-joined", name); 
+}
 
 socket.on("user-joined", (name)=>{
     append(`${name} joined the chat`, "left");
@@ -26,6 +28,11 @@ socket.on('receive', data =>{
     let message = `${data.name} : ${data.message}`; 
     append(message, "left"); 
 }); 
+
+socket.on("left", (message) =>{
+    console.log("");
+    append(message, "left");
+})
 
 formElement.addEventListener('submit', (e)=>{
     e.preventDefault();

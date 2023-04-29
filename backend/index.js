@@ -19,6 +19,10 @@ io.on("connection", socket =>{
     socket.on("receive", ({message, name})=>{
         console.log(`user ${name} set message : ${message}`);
         socket.broadcast.emit("receive", {'message': message, 'name' : name});
-    })
-    
+    });
+  
+    socket.on("disconnect", ()=>{
+        socket.broadcast.emit("left", `${users[socket.id]} left`);
+    });
+
 })
