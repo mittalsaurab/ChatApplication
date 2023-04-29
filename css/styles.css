@@ -1,0 +1,41 @@
+#container {
+    display : block; 
+    background-image : linear-gradient(rgb(255, 255, 255), rgb(255, 255, 0));
+    height: 60vh;
+    width: 60%;
+    overflow-y: auto;
+}
+
+
+.message{
+    text-align: center  ;
+    font-size: 1.4em;
+    display: block;
+    margin: 3px;
+    padding: 2px;
+    width: 25%;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.left{
+    float: left;
+    clear:both;
+}
+
+.right{
+    float: right;
+    clear: both;
+}
+
+#sendMessage{
+    width: 60%;
+    margin: 10px 0;
+}
+
+#messageInp{
+    width: 94%;
+}
+
+
+
